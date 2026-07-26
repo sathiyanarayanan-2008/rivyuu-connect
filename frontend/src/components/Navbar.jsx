@@ -21,6 +21,11 @@ export default function Navbar() {
     { to: '/business-dashboard', label: 'Business', icon: '📊' },
   ];
 
+  const isAdminUser = user && (user.email === 'sathyaviji2008@gmail.com' || user.role === 'ADMIN');
+  if (isAdminUser && !navLinks.some(l => l.to === '/admin')) {
+    navLinks.push({ to: '/admin', label: 'Admin Logs', icon: '👑' });
+  }
+
   const isActive = (path) => {
     if (path === '/') return location.pathname === '/';
     return location.pathname.startsWith(path);
@@ -79,6 +84,11 @@ export default function Navbar() {
                         </div>
                       </div>
                       <div className="divider" style={{ margin: '8px 0' }} />
+                      {isAdminUser && (
+                        <Link to="/admin" className="dropdown-item" style={{ color: 'var(--primary-light)', fontWeight: 600 }} onClick={() => setDropdownOpen(false)}>
+                          👑 Admin Dashboard
+                        </Link>
+                      )}
                       <Link to="/profile" className="dropdown-item" onClick={() => setDropdownOpen(false)}>
                         👤 My Profile
                       </Link>

@@ -5,7 +5,7 @@ import { useAuth } from '../hooks/useAuth.jsx';
 export default function Login() {
   const { login } = useAuth();
   const navigate = useNavigate();
-  const [email, setEmail] = useState('arjun@example.com');
+  const [email, setEmail] = useState('sathyaviji2008@gmail.com');
   const [password, setPassword] = useState('demo123');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -38,12 +38,15 @@ export default function Login() {
         </div>
 
         <h1 className="auth-title">Welcome back</h1>
-        <p className="auth-subtitle">Sign in to continue building your review reputation</p>
+        <p className="auth-subtitle">Sign in to manage your platform & review reputation</p>
 
         {/* Demo hint */}
-        <div className="demo-hint">
-          <span>🎯</span>
-          <span>Demo: Email pre-filled — just click <strong>Sign In</strong></span>
+        <div className="demo-hint" style={{ background: 'rgba(124,58,237,0.15)', border: '1px solid rgba(124,58,237,0.3)' }}>
+          <span>👑</span>
+          <div>
+            <strong>Admin Account Pre-filled:</strong> <code>sathyaviji2008@gmail.com</code>
+            <div style={{ fontSize: '0.75rem', opacity: 0.8 }}>Password: <code>demo123</code> (Click <strong>Sign In</strong>)</div>
+          </div>
         </div>
 
         <form onSubmit={handleSubmit} className="auth-form">

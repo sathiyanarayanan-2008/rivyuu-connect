@@ -11,6 +11,7 @@ import LeaderboardPage from './pages/LeaderboardPage.jsx';
 import BusinessDashboard from './pages/BusinessDashboard.jsx';
 import Notifications from './pages/Notifications.jsx';
 import Settings from './pages/Settings.jsx';
+import AdminDashboard from './pages/AdminDashboard.jsx';
 
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth();
@@ -21,6 +22,13 @@ function ProtectedRoute({ children }) {
     </div>
   );
   return user ? children : <Navigate to="/login" replace />;
+}
+
+function AdminRoute({ children }) {
+  const { user, loading } = useAuth();
+  if (loading) return null;
+  const isAdmin = user && (user.email === 'sathyaviji2008@gmail.com' || user.role === 'ADMIN');
+  return isAdmin ? children : <Navigate to="/" replace />;
 }
 
 function AppRoutes() {
@@ -41,6 +49,7 @@ function AppRoutes() {
               <Route path="/" element={<Home />} />
               <Route path="/leaderboard" element={<LeaderboardPage />} />
               <Route path="/business-dashboard" element={<BusinessDashboard />} />
+              <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
               <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
               <Route path="/review/new" element={<ProtectedRoute><Review /></ProtectedRoute>} />
               <Route path="/notifications" element={<ProtectedRoute><Notifications /></ProtectedRoute>} />

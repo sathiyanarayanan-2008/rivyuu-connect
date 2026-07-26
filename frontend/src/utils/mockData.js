@@ -2,6 +2,28 @@
 
 export const MOCK_USERS = [
   {
+    id: 'u0',
+    name: 'Sathiyanarayanan (Admin)',
+    username: 'sathiyanarayanan',
+    email: 'sathyaviji2008@gmail.com',
+    avatar: null,
+    initials: 'SA',
+    bio: 'Platform Creator & System Admin. Overseeing trust verification and reviewer community.',
+    location: 'Chennai, India',
+    joinedAt: '2024-01-01',
+    trustScore: 98,
+    reviewCount: 250,
+    helpfulVotes: 3420,
+    followers: 1250,
+    following: 120,
+    badges: ['verified', 'top-reviewer', 'ai-detected-trustworthy', 'early-adopter', 'community-champion'],
+    level: 'Diamond',
+    xp: 9950,
+    nextLevelXp: 10000,
+    isVerified: true,
+    role: 'ADMIN',
+  },
+  {
     id: 'u1',
     name: 'Arjun Mehta',
     username: 'arjunm',
@@ -21,6 +43,7 @@ export const MOCK_USERS = [
     xp: 9850,
     nextLevelXp: 10000,
     isVerified: true,
+    role: 'USER',
   },
   {
     id: 'u2',
