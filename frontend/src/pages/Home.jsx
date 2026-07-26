@@ -5,6 +5,7 @@ import ReviewCard from '../components/ReviewCard.jsx';
 import { MOCK_REVIEWS, MOCK_BUSINESSES, MOCK_USERS } from '../utils/mockData.js';
 import { formatNumber } from '../utils/helpers.js';
 import { voteHelpful } from '../services/reviewService.js';
+import CustomCursor from '../components/CustomCursor.jsx';
 
 const CATEGORIES = ['All', 'Food', 'E-Commerce', 'Transport', 'Beauty', 'Tech'];
 
@@ -42,11 +43,15 @@ export default function Home() {
     const feedElement = document.getElementById('platform-feed');
     if (feedElement) {
       feedElement.scrollIntoView({ behavior: 'smooth' });
+      feedElement.classList.add('pulse-feed-highlight');
+      setTimeout(() => feedElement.classList.remove('pulse-feed-highlight'), 1200);
     }
   };
 
   return (
     <div className="page-wrapper">
+      {/* Interactive Cursor Trail Animation */}
+      <CustomCursor />
       {/* Landing Page Hero */}
       <div className="hero-section">
         <div className="orb orb-primary" style={{ width: 600, height: 600, top: -200, left: -150, background: 'rgba(124,58,237,0.25)' }} />
