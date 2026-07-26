@@ -38,43 +38,92 @@ export default function Home() {
     { icon: '⭐', label: 'Avg Trust Score', value: '81.4', change: '+2.1' },
   ];
 
+  const scrollToFeed = () => {
+    const feedElement = document.getElementById('platform-feed');
+    if (feedElement) {
+      feedElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="page-wrapper">
-      {/* Hero */}
+      {/* Landing Page Hero */}
       <div className="hero-section">
-        <div className="orb orb-primary" style={{ width: 500, height: 500, top: -150, left: -100 }} />
-        <div className="orb orb-secondary" style={{ width: 400, height: 400, top: -100, right: -100 }} />
+        <div className="orb orb-primary" style={{ width: 600, height: 600, top: -200, left: -150, background: 'rgba(124,58,237,0.25)' }} />
+        <div className="orb orb-secondary" style={{ width: 500, height: 500, top: -100, right: -150, background: 'rgba(6,182,212,0.2)' }} />
+        <div className="orb" style={{ width: 350, height: 350, bottom: -100, left: '35%', background: 'rgba(118,185,0,0.15)', filter: 'blur(90px)', position: 'absolute' }} />
+        
         <div className="hero-content">
-          {!user && (
-            <div className="hero-pill animate-fade-in">
-              ✨ Trusted by 48,000+ reviewers
-            </div>
-          )}
+          <div className="hero-pill animate-fade-in flex items-center gap-2" style={{ margin: '0 auto 24px' }}>
+            <span style={{ color: '#76b900' }}>⚡ NVIDIA NIM Accelerated</span>
+            <span style={{ opacity: 0.5 }}>|</span>
+            <span>✨ 48,000+ Verified Reviews</span>
+          </div>
+
           <h1 className="hero-title animate-fade-in delay-1">
             {user ? (
               <>Welcome back, <span className="text-gradient">{user.name.split(' ')[0]}</span> 👋</>
             ) : (
-              <>Reviews You Can <span className="text-gradient">Actually Trust</span></>
+              <>The Next-Gen <span className="text-gradient">AI Review & Trust</span> Ecosystem</>
             )}
           </h1>
+
           <p className="hero-subtitle animate-fade-in delay-2">
-            {user
-              ? 'Your trust score is growing. Keep writing impactful reviews!'
-              : 'AI-powered verification, reputation badges, and real community trust scores.'
-            }
+            {user ? (
+              user.email === 'sathyaviji2008@gmail.com' ? (
+                <>Welcome Creator & Admin! Access live sign-in logs, platform analytics, and manage reviewer reputation.</>
+              ) : (
+                <>Your trust score is active. Write authentic reviews, earn XP, and unlock reputation badges!</>
+              )
+            ) : (
+              <>Real-time NVIDIA AI sentiment verification, community trust scores, and anti-fake review protection built for authentic voices.</>
+            )}
           </p>
-          {!user && (
-            <div className="hero-cta animate-fade-in delay-3">
-              <Link to="/register" className="btn btn-primary btn-lg">Get Started Free →</Link>
-              <Link to="/leaderboard" className="btn btn-ghost btn-lg">View Leaderboard</Link>
+
+          <div className="hero-cta animate-fade-in delay-3">
+            <button onClick={scrollToFeed} className="btn btn-primary btn-lg" style={{ boxShadow: 'var(--shadow-primary)' }}>
+              🚀 Explore Platform →
+            </button>
+            
+            {user?.email === 'sathyaviji2008@gmail.com' ? (
+              <Link to="/admin" className="btn btn-secondary btn-lg" style={{ border: '1px solid rgba(124,58,237,0.4)' }}>
+                👑 Admin Dashboard
+              </Link>
+            ) : user ? (
+              <Link to="/review/new" className="btn btn-secondary btn-lg">
+                ✍️ Write a Review
+              </Link>
+            ) : (
+              <Link to="/login" className="btn btn-ghost btn-lg" style={{ border: '1px solid var(--border)' }}>
+                🔑 Sign In
+              </Link>
+            )}
+          </div>
+
+          {/* Quick Feature Highlights */}
+          <div className="landing-features animate-fade-in delay-3">
+            <div className="landing-feature-item">
+              <span className="feature-icon">⚡</span>
+              <div>
+                <strong>NVIDIA NIM AI</strong>
+                <span>Instant sentiment scoring</span>
+              </div>
             </div>
-          )}
-          {user && (
-            <div className="hero-cta animate-fade-in delay-3">
-              <Link to="/review/new" className="btn btn-primary btn-lg">✍️ Write a Review</Link>
-              <Link to="/profile" className="btn btn-ghost btn-lg">Your Profile</Link>
+            <div className="landing-feature-item">
+              <span className="feature-icon">🛡️</span>
+              <div>
+                <strong>Trust Score 0-100</strong>
+                <span>AI-verified authenticity</span>
+              </div>
             </div>
-          )}
+            <div className="landing-feature-item">
+              <span className="feature-icon">🏆</span>
+              <div>
+                <strong>Podium Leaderboard</strong>
+                <span>Rankings & streak XP</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -97,7 +146,7 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
-      <div className="page-content">
+      <div className="page-content" id="platform-feed">
         <div className="home-layout">
           {/* Feed */}
           <div className="feed-col">
@@ -300,8 +349,29 @@ export default function Home() {
           position: relative;
           overflow: hidden;
         }
+        .landing-features {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          margin-top: 40px;
+          flex-wrap: wrap;
+        }
+        .landing-feature-item {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          background: rgba(255,255,255,0.04);
+          border: 1px solid var(--border-subtle);
+          border-radius: var(--radius-md);
+          padding: 10px 18px;
+          text-align: left;
+          backdrop-filter: blur(12px);
+        }
+        .landing-feature-item strong { display: block; font-size: 0.88rem; color: var(--text-primary); }
+        .landing-feature-item span { font-size: 0.75rem; color: var(--text-muted); }
+        .feature-icon { font-size: 1.4rem; }
         @media (max-width: 1024px) { .home-layout { grid-template-columns: 1fr; } .sidebar-col { display: none; } }
-        @media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } .stat-item { border-right: none; border-bottom: 1px solid var(--border-subtle); } }
+        @media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } .stat-item { border-right: none; border-bottom: 1px solid var(--border-subtle); } .landing-features { flex-direction: column; align-items: center; } }
         @media (max-width: 480px) { .stats-grid { grid-template-columns: 1fr; } }
       `}</style>
     </div>
