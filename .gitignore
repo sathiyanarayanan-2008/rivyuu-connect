@@ -1,0 +1,56 @@
+# .gitignore — Rivyuu-Connect
+
+# ── Node / Frontend ──────────────────────────────────
+node_modules/
+dist/
+build/
+.vite/
+.cache/
+*.local
+
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ── Java / Maven / Backend ───────────────────────────
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven wrapper
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# ── IDEs ─────────────────────────────────────────────
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+.vscode/
+*.swp
+*.swo
+
+# ── OS ───────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Logs ─────────────────────────────────────────────
+logs/
+*.log
+npm-debug.log*
+
+# ── Misc ─────────────────────────────────────────────
+*.bak
+*.tmp
+coverage/
+.nyc_output/
