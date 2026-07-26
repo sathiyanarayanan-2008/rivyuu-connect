@@ -280,6 +280,9 @@ export default function Review() {
               )}
 
               <div className="ai-badges-row" style={{ marginTop: 12 }}>
+                <span className="badge" style={{ background: 'rgba(118,185,0,0.18)', border: '1px solid rgba(118,185,0,0.4)', color: '#76b900', fontWeight: 700 }}>
+                  ⚡ NVIDIA NIM Accelerated
+                </span>
                 <span className="badge badge-primary">🤖 AI Verified</span>
                 <span className="badge badge-success">✅ Not Spam</span>
                 <span className="badge badge-secondary">🔐 Authentic</span>

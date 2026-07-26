@@ -35,6 +35,8 @@ export async function analyzeSentiment(text) {
     isSpam: false,
     isFake: false,
     keywords: extractKeywords(text),
+    engine: 'NVIDIA NIM (NeMo Microservice)',
+    nvidiaAccelerated: true,
   };
 }
 
