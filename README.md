@@ -1,8 +1,18 @@
 # Rivyuu-Connect 🚀
 
-> **Trust-Based Review Ecosystem** — Where authentic voices earn reputation, badges, and real influence.
+> **Trust-Based Review Ecosystem** — Powered by AI Sentiment Analysis & Reputation Badges.
 
-Built for **Hackathon 2025** | Full-Stack: React + Vite (Frontend) & Spring Boot 3 (Backend)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Netlify-00C7B7?style=for-the-badge)](http://whimsical-dodol-0ada59.netlify.app)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/sathiyanarayanan-2008/rivyuu-connect)
+[![NVIDIA NIM](https://img.shields.io/badge/⚡_NVIDIA_NIM-Accelerated-76B900?style=for-the-badge)](https://developer.nvidia.com/nemo)
+
+---
+
+### 🌐 Live Links & Hackathon Demo Details
+
+- **🌐 Live Web App:** [http://whimsical-dodol-0ada59.netlify.app](http://whimsical-dodol-0ada59.netlify.app) *(Password: `My-Drop-Site`)*
+- **🐙 GitHub Repository:** [https://github.com/sathiyanarayanan-2008/rivyuu-connect](https://github.com/sathiyanarayanan-2008/rivyuu-connect)
+- **👑 Admin Credentials:** `sathyaviji2008@gmail.com` / `demo123`
 
 ---
 
